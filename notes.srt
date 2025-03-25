@@ -1,0 +1,55 @@
+what is farfield of slm ?
+    where you can do fraunhover appx
+    light has sufficiently diffracted
+    also imaging plane of camera
+    also Fourier domain of slm : fourier transform of slm modulation is the intensity dist here
+    the coordinates are related by kx = (2pi * x)/ (lamda*f)
+
+15 jan 2025
+    1. get slm shape, cam shape (in height, width), slm pitch_um, wav_um, pixel_pitch of camera
+    2. plot the source distribution on slm for different magnifications and tuning using slm module
+    3. Need higher magnification on slm
+    4. can i ssh into the computer (or team viewer) (or host jupyter server and connect)
+
+sonic : 
+    user : sriram
+    password : sriram@123
+
+16 jan 
+    slm.shape - 1024,1280
+    slm.pitch_um - array([8.,8.])
+    wav_um = 1.064 of 1.64?
+    cam.shape (1080,1440) (before rotating by 270)
+    cam.pitch_um (3.45,3.45)
+        Thor cam - 12975
+    what is focal length of the lenses ?
+        adjust them like beam splitter to cam1 (f1) and cam1 to cam2 (f2)
+        7.7 inches, 4 inches
+
+21st jan 
+    Need pixel spacing of 4.5 um and 1/e^2 radius of 1.5 um (only ratio of these matter)
+    light + dark spots (intensity up and down symmetric)
+        as a lattice 
+        and as in https://arxiv.org/pdf/2406.07356
+    eliminate the zeroth order ? (check on that) (is it coming from their code ?)
+    how do superpixel calibration work and can it make the spots/phase patterns or zeroth order better
+
+feb4
+    reading papers on aberration correction
+        file:///Users/apple/Downloads/nphoton.2010.85%20(1).pdf
+    distortion makes it difficult to obtain diffraction limited spot size
+     
+
+17th Feb : 
+    How to generate the target amplitude image 
+        Can it be anything and should it be smooth or should it be sampled from a basis functions?
+MOMS : 
+    Plot an individual spot with aberration correction
+    Plot histogram of intensity patterns
+    Homogeneity of spots
+    create Array of bottle beams or single bottle beam
+24 Feb
+Moms :  
+    Read Efficient generation of optical bottle beams
+    Create a single bottle beam
+    shift 0th order (adjusting camera)
