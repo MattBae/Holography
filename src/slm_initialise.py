@@ -13,21 +13,25 @@ def slm_initialise(force = False,verbose = False):
     global cam
     if force == True:
         try:
-            cam.close()
             slm.close()
         except Exception as e:
-            print(f"An error occurred: {e}")
+            print(f"An error occurred with slm: {e}")
 
-    # ScreenMirrored.info(verbose=verbose);
+    if force == True:
+        try:
+            cam.close()
+        except Exception as e:
+            print(f"An error occurred with cam: {e}")
+    ScreenMirrored.info(verbose=verbose);
     slm = ScreenMirrored(display_number=0, wav_um=1.064, settle_time_s=3)
 
-    # ThorCam.info(verbose=verbose)
+    ThorCam.info(verbose=verbose)
     cam = ThorCam(serial="12975")
     cam.setup("free")
 
     fs = FourierSLM(cam, slm)
 
-    phase = np.zeros(slm.shape)
-    fs.slm.write(phase, settle=True)
+    # phase = np.zeros(slm.shape)
+    # fs.slm.write(phase, settle=True)
     return fs
 

@@ -6,6 +6,7 @@ import numpy as np
 def plot_cam(fs,exposure = 1,figsize = None,centre = False,phase = None,limits = None):
     "gets an image from camera and plots it "  
     if isinstance(phase, np.ndarray):
+        print("writing phase")
         fs.slm.write(phase, settle=True)
     elif phase == "zero":
         phase = np.zeros(fs.slm.shape)
