@@ -6,4 +6,7 @@ holography.egg-info/requires.txt
 holography.egg-info/top_level.txt
 notebooks/__init__.py
 src/__init__.py
+src/config.py
+src/plots.py
 src/slm_initialise.py
+src/utils.py
