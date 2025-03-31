@@ -19,7 +19,7 @@ def slm_initialise(force = False,verbose = False):
             print(f"An error occurred: {e}")
 
     # ScreenMirrored.info(verbose=verbose);
-    slm = ScreenMirrored(display_number=1, wav_um=1.064, settle_time_s=3)
+    slm = ScreenMirrored(display_number=0, wav_um=1.064, settle_time_s=3)
 
     # ThorCam.info(verbose=verbose)
     cam = ThorCam(serial="12975")
