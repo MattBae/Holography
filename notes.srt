@@ -50,6 +50,16 @@ MOMS :
     create Array of bottle beams or single bottle beam
 24 Feb
 Moms :  
-    Read Efficient generation of optical bottle beams
-    Create a single bottle beam
+    Read Efficient generation of optical bottle beams - done
+    Create a single bottle beam - done
     shift 0th order (adjusting camera)
+
+30 mar 
+TO DO List :
+    1. Fitting a bottle beam - done (add 2d fits in future)
+    2. 3d Imaging Bottle beam (xz axis 2d image)
+    3. Conjugate gradient method for bottle beam
+    4. Zernike based aberration correction for spot and bottle beam - paper check
+    5. Metrics for spots and bottlebeams code
+    6. Benchmark various algos for spots and bb's
+    7. Update Wiki

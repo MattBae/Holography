@@ -1,4 +1,4 @@
-Metadata-Version: 2.4
+Metadata-Version: 2.1
 Name: holography
 Version: 0.1.0
 Summary: A package to create bottlebeams and tweezers
@@ -6,6 +6,3 @@ Author: Sriram
 Provides-Extra: dev
 Requires-Dist: pytest; extra == "dev"
 Requires-Dist: black; extra == "dev"
-Dynamic: author
-Dynamic: provides-extra
-Dynamic: summary
