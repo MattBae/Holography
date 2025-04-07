@@ -22,6 +22,30 @@ def fbb(xdata,A1,A2,w1,w2,xc,yc,offset):
     return bb(x,y,A1,A2,w1,w2,xc,yc) + offset
 
 
+def get_fit_params(target,trap = "none"):
+    if trap == "g":
+        f_fit = fg
+        initial_guess = (target.max() - target.min(),10,target.shape[0]/2,target.shape[1]/2,target.min())
+    elif trap== "bb":
+        f_fit = fbb
+        initial_guess = ((target.max() - target.min())/2,(target.max() - target.min())/2,20,10,target.shape[0]/2,target.shape[1]/2,target.min())
+    else:
+        print("provide valid trap type")
+        return
+    "function which fits an optical tweezer and plots it"
+    target.shape[0],target.shape[1]
+    xdata = np.array([[i,j] for i in range(target.shape[0]) for j in range(target.shape[1])]).T
+
+    
+    popt, pcov = curve_fit(f_fit,xdata,target[*xdata],p0=initial_guess,maxfev=10000)
+    # popt = initial_guess
+    print(f"optimised params are {popt}")
+
+    pred = f_fit(xdata, *popt).reshape(target.shape[0],target.shape[1])
+    "matplotlib 2d plot"
+    plt.figure()
+    plt.imshow(pred)
+    return popt
 
 def plot_fit(target,trap = "none"):
     if trap == "g":
