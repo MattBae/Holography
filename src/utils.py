@@ -93,3 +93,5 @@ def create_tweezers(fs):
 def bottle_beam_phase(fs):
     ro = 240
     return np.array([[np.pi if ((i-fs.slm.get_source_center()[0])**2 + (j-fs.slm.get_source_center()[1])**2) <= ro**2 else 0 for j in range(1280)] for i in range(1024)])
+
+

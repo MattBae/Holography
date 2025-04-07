@@ -63,3 +63,10 @@ TO DO List :
     5. Metrics for spots and bottlebeams code
     6. Benchmark various algos for spots and bb's
     7. Update Wiki
+
+31 March
+Meeting Notes :
+    1. 2d fits of bottle beams
+    2. Metrics for tweezers (Peak Intensity uniformity, Spot width uniformities)
+    3. Metrics for bottlebeam (Imax - Icentre)
+    4. combine bottle beams and tweezers 
