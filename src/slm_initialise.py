@@ -25,7 +25,7 @@ def slm_initialise(force = False,verbose = False):
     ScreenMirrored.info(verbose=verbose);
     slm = ScreenMirrored(display_number=0, wav_um=1.064, settle_time_s=3)
 
-    ThorCam.info(verbose=verbose)
+    # ThorCam.info(verbose=verbose)
     cam = ThorCam(serial="12975")
     cam.setup("free")
 
