@@ -70,3 +70,14 @@ Meeting Notes :
     2. Metrics for tweezers (Peak Intensity uniformity, Spot width uniformities)
     3. Metrics for bottlebeam (Imax - Icentre)
     4. combine bottle beams and tweezers 
+
+
+
+11 April 
+    Is farfield shape same as slm_shape (from fft yes)
+    camera captures only some part of the farfield (its in the fourier calibration)
+    cam.get_image is intensitites
+        is normalised by slmsuite when computing stats
+    fs.slm input source amp uses uniform amp, can pass the actual source amp as argument
+    input target amp to feedback hologram is normalised
+
