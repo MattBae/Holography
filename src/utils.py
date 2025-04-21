@@ -4,8 +4,9 @@ from slmsuite.holography.analysis.files import load_h5, save_h5, generate_path, 
 from slmsuite.holography.algorithms import SpotHologram
 import numpy as np
 from PIL import Image
+import time
 
-def get_cam(fs,exposure = 1,figsize = None,centre = False,phase = None,limits = None,save=False):
+def get_cam(fs,exposure = 1,figsize = None,centre = False,phase = None,limits = None,save=False,sleep = 0):
     "gets an image from camera "  
     if isinstance(phase, np.ndarray):
         print("writing phase")
@@ -16,17 +17,19 @@ def get_cam(fs,exposure = 1,figsize = None,centre = False,phase = None,limits = 
     else:
         "do nothing"
     fs.cam.set_exposure(exposure*0.064e-3)
+    time.sleep(sleep)
     img = fs.cam.get_image()
     if limits != None:
         img = img[limits]
     return img
 
 
-def plot_cam(fs,exposure = 1,figsize = None,centre = False,phase = None,limits = None, save=False):
+def plot_cam(fs,exposure = 1,figsize = None,centre = False,phase = None,limits = None, save=False,plot = True,sleep = 0):
     "gets an image from camera and plots it" 
     img = get_cam(fs,exposure,figsize,centre,phase,limits,save)
-    plt.figure(figsize=figsize)
-    plt.imshow(img)
+    if plot == True:
+        plt.figure(figsize=figsize)
+        plt.imshow(img)
     if centre == True:
         plt.scatter(720,540,color = 'blue',s = 10)
     return img
@@ -102,7 +105,8 @@ def create_tweezers(fs,spot_locations = None,maxiter = 30):
 
     "Initialise and optimise the hologram"
     hologram = SpotHologram(shape=fs.slm.shape, spot_vectors=spot_locations, basis='ij', cameraslm=fs)
-    hologram.optimize('WGS-Kim', feedback='experimental_spot', stat_groups=[ 'experimental_spot'], maxiter=maxiter,fixed_phase=False)
+    hologram.optimize('WGS-Kim', feedback='computational_spot', stat_groups=[ 'computational_spot'], maxiter=maxiter)
+    hologram.optimize('WGS-Kim', feedback='experimental_spot', stat_groups=['computational_spot','experimental_spot'], maxiter=maxiter,fixed_phase=True)
     hologram.plot_stats()
     plot_cam(fs)
     return hologram
