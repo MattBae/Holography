@@ -117,7 +117,7 @@ def bottle_beam_phase(fs):
 
 def random_masking(phi1,phi2):
     "Superposes two holograms by allocating slm pixels randomly to each of them"
-    mask = np.random.choice([True,False],size = phi1.shape,p = [0.42,0.58])
+    mask = np.random.choice([True,False],size = phi1.shape,p = [0.35,0.65])
     return np.where(mask,phi1,phi2)
 
 def lens_phase(fs,shift):
