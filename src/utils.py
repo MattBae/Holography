@@ -39,6 +39,7 @@ def save_cam(fs,exposure = 1,figsize = None,centre = False,phase = None,limits =
     "gets an image from camera and saves it" 
     img = get_cam(fs,exposure,figsize,centre,phase,limits)
     np.save(f"{figures_path/'raw'/file_name}.npy", img)
+    plt.imshow(np.load(f"{figures_path/'raw'/file_name}.npy"))
 
 
 
@@ -53,18 +54,18 @@ def calibrate(fs,vendor = True,refresh = True):
     
     if refresh == True:
         "fourier"
-        fs.cam.set_exposure(30*0.064e-3)
+        fs.cam.set_exposure(60*0.064e-3)
         fc = fs.fourier_calibrate(
-            array_shape=(12,16),
-            array_pitch=20,
+            array_shape=(20,28),
+            array_pitch=10,
             plot=True,
         )
         "settle time"
-        sc = fs.settle_calibrate()
+        # sc = fs.settle_calibrate()
 
         fs.save_calibration(calibration_type = "fourier", path=calibrations_path)
-        fs.save_calibration(calibration_type = "settle", path=calibrations_path)
-        return sc,fc
+        # fs.save_calibration(calibration_type = "settle", path=calibrations_path)
+        return fc
     else:
         for c in ["fourier","settle"]:
             name = fs.name_calibration(c)
@@ -80,7 +81,7 @@ def sp_calibrate(fs,refresh = True):
             field_point=(0.25, 0),
             field_point_units="freq",
             superpixel_size=128,
-            plot=0
+            plot=1
         )
         fs.save_calibration(calibration_type = "wavefront_superpixel",path=calibrations_path)
     else:
@@ -113,7 +114,7 @@ def create_tweezers(fs,spot_locations = None,maxiter = 30):
 
 def bottle_beam_phase(fs):
     ro = 240
-    return np.array([[np.pi if ((i-fs.slm.get_source_center()[0])**2 + (j-fs.slm.get_source_center()[1])**2) <= ro**2 else 0 for j in range(1280)] for i in range(1024)])
+    return np.array([[np.pi if ((i+60-fs.slm.get_source_center()[1])**2 + (j-fs.slm.get_source_center()[0])**2) <= ro**2 else 0 for j in range(1280)] for i in range(1024)])
 
 def random_masking(phi1,phi2):
     "Superposes two holograms by allocating slm pixels randomly to each of them"

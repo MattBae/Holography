@@ -23,7 +23,7 @@ def slm_initialise(force = False,verbose = False):
         except Exception as e:
             print(f"An error occurred with cam: {e}")
     ScreenMirrored.info(verbose=verbose);
-    slm = ScreenMirrored(display_number=0, wav_um=1.064, settle_time_s=3)
+    slm = ScreenMirrored(display_number=0, wav_um=1.064, settle_time_s=4)
 
     # ThorCam.info(verbose=verbose)
     cam = ThorCam(serial="12975")

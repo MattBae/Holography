@@ -81,3 +81,13 @@ Meeting Notes :
     fs.slm input source amp uses uniform amp, can pass the actual source amp as argument
     input target amp to feedback hologram is normalised
 
+3rd June
+    read aberration space holography
+    To do: 
+        Iterate zernike phases globally with varying coefficients
+        Find the optimal or closest bb image/spot params
+        compute rmse from this for each coefficents and minimum of rmse gives the local aberration correction coefficient for each spot
+        Apply these to indivudual spots
+10th June
+    cam 1 pixel to knm conversion is 0.123 to 0.124x
+
