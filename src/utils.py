@@ -6,7 +6,7 @@ import numpy as np
 from PIL import Image
 import time
 
-def get_cam(fs,exposure = 1,figsize = None,centre = False,phase = None,limits = None,save=False,sleep = 0):
+def get_cam(fs,exposure = 1,figsize = None,centre = False,phase = None,limits = None,sleep = 0):
     "gets an image from camera "  
     if isinstance(phase, np.ndarray):
         print("writing phase")
@@ -26,7 +26,7 @@ def get_cam(fs,exposure = 1,figsize = None,centre = False,phase = None,limits = 
 
 def plot_cam(fs,exposure = 1,figsize = None,centre = False,phase = None,limits = None, save=False,plot = True,sleep = 0):
     "gets an image from camera and plots it" 
-    img = get_cam(fs,exposure,figsize,centre,phase,limits,save)
+    img = get_cam(fs,exposure,figsize,centre,phase,limits,sleep)
     if plot == True:
         plt.figure(figsize=figsize)
         plt.imshow(img)
@@ -35,11 +35,13 @@ def plot_cam(fs,exposure = 1,figsize = None,centre = False,phase = None,limits =
     return img
 
 
-def save_cam(fs,exposure = 1,figsize = None,centre = False,phase = None,limits = None,file_name="temp"):
+def save_cam(fs,exposure = 1,figsize = None,centre = False,phase = None,limits = None,file_name="temp",sleep = 0):
     "gets an image from camera and saves it" 
-    img = get_cam(fs,exposure,figsize,centre,phase,limits)
+    img = get_cam(fs,exposure,figsize,centre,phase,limits,sleep=sleep)
     np.save(f"{figures_path/'raw'/file_name}.npy", img)
-    plt.imshow(np.load(f"{figures_path/'raw'/file_name}.npy"))
+    img_saved = np.load(f"{figures_path/'raw'/file_name}.npy")
+    plt.imshow(img_saved)
+    return img_saved
 
 
 

@@ -76,18 +76,20 @@ def update_weights(fs,phase,spot_vectors,spot_weights,only_amp = False):
     "updates the spot weights :- positions shifts : 3,4 intensities weightage: 0 shape apodisation : 1,2 based on the camera feedback and gaussian fits"
     out = plot_cam(fs=fs,phase = phase,plot = False,sleep=3)
     params = []
+    patch = 30
     for spot_location in spot_vectors:
-        params.append(get_fit_params_lm(out[spot_location[1]-50:spot_location[1]+50,spot_location[0]-50:spot_location[0]+50]))
+        params.append(get_fit_params_lm(out[spot_location[1]-patch:spot_location[1]+patch,spot_location[0]-patch:spot_location[0]+patch]))
     spot_w = np.array(params)
     spot_mean = np.mean(spot_w,axis=0)
     spot_std = np.std(spot_w,axis=0)
     print(f"variation is {np.std(spot_w,axis = 0)/np.mean(spot_w,axis = 0) * 100}")
     spot_weights[:,0] = spot_weights[:,0]*np.power(spot_mean[0]/spot_w.T[0],0.2)
+    senstivitities = [1.0,0.0,0.0,0.0,0.1]
     if only_amp == False:
-        spot_weights[:,1] = spot_weights[:,1] + (- spot_w[:,1] + spot_mean[1])/1000
-        spot_weights[:,2] = spot_weights[:,2] + (- spot_w[:,2] + spot_mean[2])/1000
-        spot_weights[:,3] = spot_weights[:,3] + (- spot_w[:,3] + spot_mean[3])/3
-        spot_weights[:,4] = spot_weights[:,4] + (- spot_w[:,4] + spot_mean[4])/3
+        spot_weights[:,1] = spot_weights[:,1] + senstivitities[1]*(- spot_w[:,1] + spot_mean[1])/1000
+        spot_weights[:,2] = spot_weights[:,2] + senstivitities[2]*(- spot_w[:,2] + spot_mean[2])/1000
+        spot_weights[:,3] = spot_weights[:,3] + senstivitities[3]*(- spot_w[:,3] + spot_mean[3])/3
+        spot_weights[:,4] = spot_weights[:,4] + senstivitities[4]*(- spot_w[:,4] + spot_mean[4])/3
     return spot_weights
 
 
