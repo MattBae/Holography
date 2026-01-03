@@ -1,3 +1,2 @@
-Project report : 
-## Report
+## Project Report
 - [SLM Report (PDF)](slm_report.pdf)
