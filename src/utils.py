@@ -90,8 +90,8 @@ def sp_calibrate(fs,refresh = True):
         name = fs.name_calibration("wavefront_superpixel")
         file_path = latest_path(calibrations_path, name, extension="h5")
         fs.load_calibration(calibration_type = "wavefront_superpixel", file_path=file_path)
-    fs.wavefront_calibration_superpixel_process(r2_threshold=.3, plot=True,smooth=True)
-    fs.slm.fit_source_amplitude(force=True)
+    fs.wavefront_calibration_superpixel_process(r2_threshold=.3, plot=True,smooth=True,apply = True)
+    fs.slm.fit_source_amplitude(force = True,method = 'fit')
 
 def create_tweezers(fs,spot_locations = None,maxiter = 30):
     "creates optical tweezers using wgs-kim at the given spot locations"
@@ -116,7 +116,7 @@ def create_tweezers(fs,spot_locations = None,maxiter = 30):
 
 def bottle_beam_phase(fs):
     ro = 240
-    return np.array([[np.pi if ((i+60-fs.slm.get_source_center()[1])**2 + (j-fs.slm.get_source_center()[0])**2) <= ro**2 else 0 for j in range(1280)] for i in range(1024)])
+    return np.array([[np.pi if ((i-fs.slm.get_source_center()[1])**2 + (j-fs.slm.get_source_center()[0])**2) <= ro**2 else 0 for j in range(1280)] for i in range(1024)])
 
 def random_masking(phi1,phi2):
     "Superposes two holograms by allocating slm pixels randomly to each of them"

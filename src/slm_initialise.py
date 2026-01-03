@@ -1,10 +1,11 @@
 from time import sleep
+import time
 import numpy as np
 from slmsuite.hardware.cameraslms import FourierSLM
 from slmsuite.holography.algorithms import Hologram, SpotHologram, FeedbackHologram
 from slmsuite.hardware.slms.screenmirrored import ScreenMirrored
 from slmsuite.hardware.cameras.thorlabs import ThorCam
-
+from src import global_store
 slm = None
 cam = None
 def slm_initialise(force = False,verbose = False):
@@ -29,9 +30,9 @@ def slm_initialise(force = False,verbose = False):
     cam = ThorCam(serial="12975")
     cam.setup("free")
 
-    fs = FourierSLM(cam, slm)
+    global_store.fs = FourierSLM(cam, slm)
 
     # phase = np.zeros(slm.shape)
     # fs.slm.write(phase, settle=True)
-    return fs
+    return global_store.fs
 

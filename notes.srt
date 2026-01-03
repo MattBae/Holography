@@ -11,9 +11,7 @@ what is farfield of slm ?
     3. Need higher magnification on slm
     4. can i ssh into the computer (or team viewer) (or host jupyter server and connect)
 
-sonic : 
-    user : sriram
-    password : sriram@123
+
 
 16 jan 
     slm.shape - 1024,1280
@@ -91,3 +89,22 @@ Meeting Notes :
 10th June
     cam 1 pixel to knm conversion is 0.123 to 0.124x
 
+13th August 
+    To do : 
+        for each tweezer, for each zernike_index
+            Fit the parabolas to find the best aberration w
+    Correct the aberration for all the tweeers using w
+        tweezer_index, [zernike_index:optimal w]
+        Implement kernel transform in zernike space to find phase mask 
+    
+    correct uniformity's using ultra precise tweezers correction
+
+27 August
+    To do :
+        1. Write test cases to handle slm going off  - done
+        2. Write the rmse error for deviation from expected tweezer(diffraction limited)
+        3. Implement the fitting fucntion from curve fit as in slmsuite - done
+        3. Test the iterative pert method 
+        4. Test the slmsuites method
+        5. Implement GPUCB 
+        6. Test it 

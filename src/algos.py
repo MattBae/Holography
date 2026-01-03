@@ -6,6 +6,7 @@ from slmsuite.holography.toolbox.phase import zernike
 from lmfit.models import Gaussian2dModel
 from lmfit.lineshapes import gaussian2d
 from src.utils import *
+from src.zernike import refine_centers
 
 def create_target_spots(spot_vectors,fs,spot_weights=None):
     "Creates the target Amplitude image in fourier domain (superposition of deltas ) using the spot locations at camera domain"
@@ -54,8 +55,8 @@ def get_phi_nf(fs,spot_vectors,phi_ff,spot_weights):
         spot_y = spot_weights[i][2]
         shift_x = spot_weights[i][3]
         shift_y = spot_weights[i][4]
-        zernikex = torch.tensor(zernike(fs.slm, 2))
-        zernikey = torch.tensor(zernike(fs.slm, 1))
+        zernikex = torch.tensor(zernike(fs.slm, 2,use_mask = False))
+        zernikey = torch.tensor(zernike(fs.slm, 1,use_mask = False))
         yc, xc = toolbox.convert_vector(fs.ijcam_to_kxyslm(spot_vector),from_units='kxy',to_units='knm',hardware = fs)
         theta = phi_ff[int(xc),int(yc)]
         x,y = torch.meshgrid(torch.arange(phi_ff.shape[0]), torch.arange(phi_ff.shape[1]), indexing='ij')
@@ -68,43 +69,46 @@ def get_fit_params_lm(target):
     xdata = np.array([[i,j] for i in range(target.shape[0]) for j in range(target.shape[1])]).T
     model = Gaussian2dModel()
     params = model.guess(target.ravel(),xdata[0].ravel(),xdata[1].ravel())
-    result = model.fit(target.ravel(),params,x = xdata[0].ravel(),y = xdata[1].ravel(),max_nfev = 10000)
+    result = model.fit(target.ravel(),params,x = xdata[0].ravel(),y = xdata[1].ravel(),max_nfev = 30000)
     return [result.params['height'].value,result.params['sigmax'].value,result.params['sigmay'].value,result.params['centerx'].value,result.params['centery'].value]
 
 
 def update_weights(fs,phase,spot_vectors,spot_weights,only_amp = False):
     "updates the spot weights :- positions shifts : 3,4 intensities weightage: 0 shape apodisation : 1,2 based on the camera feedback and gaussian fits"
-    out = plot_cam(fs=fs,phase = phase,plot = False,sleep=3)
+    out = plot_cam(fs=fs,phase = phase.numpy(),plot = False,sleep=3)
     params = []
-    patch = 30
-    for spot_location in spot_vectors:
-        params.append(get_fit_params_lm(out[spot_location[1]-patch:spot_location[1]+patch,spot_location[0]-patch:spot_location[0]+patch]))
+    patch = 25
+    refined_centres = refine_centers(out, expected_centers = spot_vectors, patch_size=50, min_distance=1)
+    for i in range(len(refined_centres)):
+        spot_location = refined_centres[i]
+        param = get_fit_params_lm(out[spot_location[1]-patch:spot_location[1]+patch,spot_location[0]-patch:spot_location[0]+patch])
+        params.append([param[0],param[1],param[2],spot_location[1]-spot_vectors[i][1]+ param[3] -patch,spot_location[0]-spot_vectors[i][0]+param[4]-patch])
     spot_w = np.array(params)
     spot_mean = np.mean(spot_w,axis=0)
     spot_std = np.std(spot_w,axis=0)
     print(f"variation is {np.std(spot_w,axis = 0)/np.mean(spot_w,axis = 0) * 100}")
     spot_weights[:,0] = spot_weights[:,0]*np.power(spot_mean[0]/spot_w.T[0],0.2)
-    senstivitities = [1.0,0.0,0.0,0.0,0.1]
+    senstivitities = [1.0,1.0,1.0,1.0,1.0]
     if only_amp == False:
         spot_weights[:,1] = spot_weights[:,1] + senstivitities[1]*(- spot_w[:,1] + spot_mean[1])/1000
         spot_weights[:,2] = spot_weights[:,2] + senstivitities[2]*(- spot_w[:,2] + spot_mean[2])/1000
-        spot_weights[:,3] = spot_weights[:,3] + senstivitities[3]*(- spot_w[:,3] + spot_mean[3])/3
-        spot_weights[:,4] = spot_weights[:,4] + senstivitities[4]*(- spot_w[:,4] + spot_mean[4])/3
+        spot_weights[:,3] = spot_weights[:,3] + senstivitities[3]*( -spot_w[:,3] + spot_mean[3])/30
+        spot_weights[:,4] = spot_weights[:,4] + senstivitities[4]*( -spot_w[:,4] + spot_mean[4])/30
     return spot_weights
 
 
-def ultraprecise_spot_correction(spot_vectors,fs,phi_ff_gs,n_iters = 100):
+def ultraprecise_spot_correction(spot_vectors,fs,phi_ff_gs,blaze_phase,n_iters = 100):
     "corrects the spots using the method as in https://arxiv.org/pdf/2407.20699"
     spot_weights = np.zeros((spot_vectors.shape[0],5))
     spot_weights[:,0] = 1
     phis = []
     for iter in range(n_iters):
         phi_nf_new = get_phi_nf(fs,spot_vectors,phi_ff_gs,spot_weights)
-        spot_weights = update_weights(fs,phi_nf_new.numpy(),spot_vectors,spot_weights,only_amp = False)
+        spot_weights = update_weights(fs,phi_nf_new + blaze_phase,spot_vectors,spot_weights,only_amp = False)
         phis.append(phi_nf_new)
     return phis
 
-def ultraprecise_spots(spot_vectors,fs,n_iters_gs = 100,n_iters_corr = 100):
+def ultraprecise_spots(spot_vectors,fs,blaze_phase,n_iters_gs = 100,n_iters_corr = 100):
     "creates the spots using gs and corrects them using the method as in https://arxiv.org/pdf/2407.20699"
     phi_nf_gs,phi_ff_gs = gs(spot_vectors,fs,n_iters = n_iters_gs)
-    return ultraprecise_spot_correction(spot_vectors,fs,phi_ff_gs,n_iters = n_iters_corr)
+    return ultraprecise_spot_correction(spot_vectors,fs,phi_ff_gs,blaze_phase,n_iters = n_iters_corr)

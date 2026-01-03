@@ -1,2 +1,4 @@
 *.dll
 *.cfg
+data/
+calibrations/
