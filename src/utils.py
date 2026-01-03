@@ -4,6 +4,7 @@ from slmsuite.holography.analysis.files import load_h5, save_h5, generate_path, 
 from slmsuite.holography.algorithms import SpotHologram
 import numpy as np
 from PIL import Image
+import torch
 
 def get_cam(fs,exposure = 1,figsize = None,centre = False,phase = None,limits = None,save=False):
     "gets an image from camera "  
@@ -111,6 +112,11 @@ def bottle_beam_phase(fs):
     ro = 240
     return np.array([[np.pi if ((i-fs.slm.get_source_center()[0])**2 + (j-fs.slm.get_source_center()[1])**2) <= ro**2 else 0 for j in range(1280)] for i in range(1024)])
 
+def bottle_beam_phase(w_cutoff = 211.084,H = 1024,W = 1280):
+    ro = w_cutoff
+    return np.array([[np.pi if ((i-H/2)**2 + (j-W/2)**2) <= ro**2 else 0 for j in range(W)] for i in range(H)])
+
+
 def random_masking(phi1,phi2):
     "Superposes two holograms by allocating slm pixels randomly to each of them"
     mask = np.random.choice([True,False],size = phi1.shape,p = [0.42,0.58])
@@ -171,3 +177,31 @@ def plot_axial(plane='XZ', index=50, images=None):
     plt.ylabel(ylabel)
     plt.title(title)
     plt.show()
+
+
+
+
+
+def phase_pbb_10(order=2, H=1024, W=1280, center_y=None, center_x=None):
+    if center_y is None:
+        center_y = H // 2
+    if center_x is None:
+        center_x = W // 2
+
+    # Create coordinate grid
+    y = torch.arange(H).view(-1, 1).expand(H, W)
+    x = torch.arange(W).view(1, -1).expand(H, W)
+    theta = torch.atan2(y - center_y, x - center_x)
+    # Base phase pattern
+    phase = order * theta  # +5θ
+
+    # Create 50% random mask: True => use +5θ, False => use -5θ
+    # rand_mask = torch.rand(H, W) > 1.7/2
+    rand_mask = torch.rand(H, W) > 1
+    phase[rand_mask == False] *= -1  # Flip sign where mask is False
+
+    return phase  # Shape: (H, W)
+
+def get_bb_optimal_a(w_in,H):
+    """Calculate the optimal 'a' parameter for a bottle beam phase pattern."""
+    return w_in*(np.log(2/(1+np.e**(-H**2/w_in**2))))**0.5

@@ -1,0 +1,65 @@
+\documentclass{article}
+\usepackage{amsmath, amssymb}
+
+\begin{document}
+
+We begin with a Gaussian input field amplitude in the near field:
+\begin{equation}
+    A_{\text{in}}(\mathbf{r}) = \exp\!\left(-\frac{|\mathbf{r}|^{2}}{w_{0}^{2}}\right).
+\end{equation}
+
+Its Fourier transform is also a Gaussian:
+\begin{equation}
+    \mathcal{F}\{A_{\text{in}}(\mathbf{r})\}(\mathbf{k}) 
+    = \exp\!\left(-\frac{w_{0}^{2}|\mathbf{k}|^{2}}{4}\right).
+\end{equation}
+
+---
+
+Now, if the input field is shifted by $\mathbf{r}_{0}$, this corresponds to convolution with a Dirac delta:
+\begin{equation}
+    A_{\text{in}}'(\mathbf{r}) 
+    = \big( A_{\text{in}} \ast \delta(\mathbf{r}-\mathbf{r}_{0}) \big)(\mathbf{r})
+    = A_{\text{in}}(\mathbf{r}-\mathbf{r}_{0}).
+\end{equation}
+
+In the Fourier plane this results in multiplication by a linear (blazing) phase:
+\begin{equation}
+    \mathcal{F}\{A_{\text{in}}'(\mathbf{r})\}(\mathbf{k})
+    = \mathcal{F}\{A_{\text{in}}(\mathbf{r})\}(\mathbf{k}) \,
+      e^{-i \mathbf{k}\cdot \mathbf{r}_{0}}.
+\end{equation}
+
+---
+
+Next, we apply a phase mask corresponding to a bottle beam:
+\begin{equation}
+    A_{\text{mask}}(\mathbf{r}) 
+    = A_{\text{in}}'(\mathbf{r}) \, e^{i \phi_{\text{bb}}(\mathbf{r})}.
+\end{equation}
+
+The Fourier transform of this field is given by a convolution:
+\begin{equation}
+    \mathcal{F}\{A_{\text{mask}}(\mathbf{r})\}(\mathbf{k})
+    = \bigg[ \mathcal{F}\{A_{\text{in}}'(\mathbf{r})\}(\mathbf{k}) \bigg]
+      \ast \bigg[ \mathcal{F}\{e^{i \phi_{\text{bb}}(\mathbf{r})}\}(\mathbf{k}) \bigg].
+\end{equation}
+
+---
+
+Thus, the final output field in the Fourier plane can be written as
+\begin{equation}
+    A_{\text{out}}(\mathbf{k}) 
+    = \Big[ G(\mathbf{k}) \, e^{-i \mathbf{k}\cdot \mathbf{r}_{0}} \Big]
+      \ast B(\mathbf{k}),
+\end{equation}
+where 
+\[
+    G(\mathbf{k}) = \exp\!\left(-\tfrac{w_{0}^{2}|\mathbf{k}|^{2}}{4}\right), 
+    \quad 
+    B(\mathbf{k}) = \mathcal{F}\{ e^{i \phi_{\text{bb}}(\mathbf{r})} \}.
+\]
+
+In words: the output is the Gaussian spot (shifted by a blazing phase) convolved with the Fourier representation of the bottle-beam mask.
+
+\end{document}

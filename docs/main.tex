@@ -1,0 +1,116 @@
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{amsmath}
+
+\title{Periodic Bottle Beams}
+\author{Sriram M}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section{Introduction}
+
+This contains equations to generate a periodic bottle beam.
+
+\section{Math}
+Consider Fourier transform of a phase mask \(\phi(r,\theta) = n \theta\):
+\begin{equation}
+\int_{0}^{R}\int_{0}^{\Pi} e^{i \phi(r,\theta)} e^{-i k r \cos(\theta - \phi)} r dr d\theta = 2\pi i n J_n(kr)
+\end{equation}
+where \(J_n\) is the Bessel function of the first kind
+
+
+
+\section{quadratic bottle beam profile}
+$$
+A_{bb}(k,z) = \int_{0}^{a} r\,\exp\!\Bigl[-r^2\Bigl(\tfrac{1}{w_{\mathrm{in}}^2} + i\,\tfrac{z}{2f}\Bigr)\Bigr]\,J_0(kr)\,dr
+\;-\;
+\int_{a}^{H} r\,\exp\!\Bigl[-r^2\Bigl(\tfrac{1}{w_{\mathrm{in}}^2} + i\,\tfrac{z}{2f}\Bigr)\Bigr]\,J_0(kr)\,dr
+$$
+
+$$
+A_{bb}(0,z) = \int_{0}^{a} r\,\exp\!\Bigl[-r^2\Bigl(\tfrac{1}{w_{\mathrm{in}}^2} + i\,\tfrac{z}{2f}\Bigr)\Bigr]\,dr
+\;-\;
+\int_{a}^{H} r\,\exp\!\Bigl[-r^2\Bigl(\tfrac{1}{w_{\mathrm{in}}^2} + i\,\tfrac{z}{2f}\Bigr)\Bigr]\,dr
+$$
+
+$$
+\text{Let }\alpha = \frac{1}{w_{\mathrm{in}}^2} + i\,\frac{z}{2f}.
+\quad\text{Then}
+\quad
+A_{bb}(0,z)
+= \int_{0}^{a} r\,e^{-\alpha r^2}\,dr
+  - \int_{a}^{H} r\,e^{-\alpha r^2}\,dr
+= \frac{1 - 2e^{-\alpha a^2} + e^{-\alpha H^2}}{2\alpha}.
+$$
+
+$$
+A_{bb}(0,z)
+\;=\;
+\frac{w_{\mathrm{in}}^2}{2}\Bigl(1 - 2e^{-a^2/w_{\mathrm{in}}^2} + e^{-H^2/w_{\mathrm{in}}^2}\Bigr)
+\;+\;
+\frac{i\,z}{4f}\Bigl[
+w_{\mathrm{in}}^2\bigl(2a^2e^{-a^2/w_{\mathrm{in}}^2}-H^2e^{-H^2/w_{\mathrm{in}}^2}\bigr)
+- w_{\mathrm{in}}^4\bigl(1 - 2e^{-a^2/w_{\mathrm{in}}^2} + e^{-H^2/w_{\mathrm{in}}^2}\bigr)
+\Bigr]
++ O(z^2)\,.
+$$
+
+$$
+A_{bb}(0,z)
+\;=\;
+\frac{1 - 2\,e^{-\alpha a^2}}{2\alpha}
+\quad\text{with}\quad
+\alpha = \frac{1}{w_{\mathrm{in}}^2} + i\,\frac{z}{2f}.
+$$
+
+$$
+A_{bb}(0,z)
+\;=\;
+\frac{1 - 2\exp\!\Bigl(-\bigl(\tfrac{1}{w_{\mathrm{in}}^2} + i\,\tfrac{z}{2f}\bigr)\,w_{\mathrm{in}}^2\ln2\Bigr)}
+{2\Bigl(\tfrac{1}{w_{\mathrm{in}}^2} + i\,\tfrac{z}{2f}\Bigr)}.
+$$
+
+$$
+A_{bb}(0,z)
+= \frac{1 - \exp\!\Bigl(-i\,\tfrac{w_{\mathrm{in}}^2\,\ln2}{2f}\,z\Bigr)}
+{\displaystyle \frac{2}{w_{\mathrm{in}}^2} + i\,\frac{z}{f}}.
+$$
+
+$$
+I_{bb}(0,z)
+= \bigl|A_{bb}(0,z)\bigr|^2
+= \frac{\Bigl|1 - \exp\!\bigl(-i\,\tfrac{w_{\mathrm{in}}^2 \ln2}{2f}\,z\bigr)\Bigr|^2}
+{\Bigl|\tfrac{2}{w_{\mathrm{in}}^2} + i\,\tfrac{z}{f}\Bigr|^2}.
+$$
+
+
+$$
+I_{bb}(0,z)
+= \frac{\bigl|1 - e^{-i\frac{w_{\mathrm{in}}^2\ln2}{2f}z}\bigr|^2}
+       {\Bigl(\frac{2}{w_{\mathrm{in}}^2}\Bigr)^2 + \Bigl(\frac{z}{f}\Bigr)^2}
+= \frac{2 - 2\cos\!\bigl(\tfrac{w_{\mathrm{in}}^2\ln2}{2f}z\bigr)}
+       {\displaystyle \frac{4}{w_{\mathrm{in}}^4} + \frac{z^2}{f^2}}
+= \frac{4\sin^2\!\bigl(\tfrac{w_{\mathrm{in}}^2\ln2}{4f}z\bigr)}
+       {\displaystyle \frac{4}{w_{\mathrm{in}}^4} + \frac{z^2}{f^2}}.
+$$
+
+$$
+I_{bb}(0,z)
+= \frac{w_{\mathrm{in}}^8(\ln 2)^2}{16\,f^2}\,z^2
+- \frac{w_{\mathrm{in}}^{12}(\ln 2)^2\bigl((\ln 2)^2 + 12\bigr)}{768\,f^4}\,z^4
++ O(z^6)\,.
+$$
+
+
+
+
+\section{Figure}
+\begin{center}
+\includegraphics[width=0.5\textwidth]{example-image}
+\end{center}
+
+\end{document}

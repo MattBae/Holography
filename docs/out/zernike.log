@@ -1,0 +1,367 @@
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.7.16)  4 SEP 2025 13:08
+entering extended mode
+ restricted \write18 enabled.
+ file:line:error style messages enabled.
+ %&-line parsing enabled.
+**/Users/apple/Desktop/holography/docs/zernike.tex
+(/Users/apple/Desktop/holography/docs/zernike.tex
+LaTeX2e <2024-11-01> patch level 2
+L3 programming layer <2025-01-18>
+(/usr/local/texlive/2025/texmf-dist/tex/latex/base/article.cls
+Document Class: article 2024/06/29 v1.4n Standard LaTeX document class
+(/usr/local/texlive/2025/texmf-dist/tex/latex/base/size11.clo
+File: size11.clo 2024/06/29 v1.4n Standard LaTeX file (size option)
+)
+\c@part=\count196
+\c@section=\count197
+\c@subsection=\count198
+\c@subsubsection=\count199
+\c@paragraph=\count266
+\c@subparagraph=\count267
+\c@figure=\count268
+\c@table=\count269
+\abovecaptionskip=\skip49
+\belowcaptionskip=\skip50
+\bibindent=\dimen141
+) (/usr/local/texlive/2025/texmf-dist/tex/latex/base/inputenc.sty
+Package: inputenc 2024/02/08 v1.3d Input encoding file
+\inpenc@prehook=\toks17
+\inpenc@posthook=\toks18
+) (/usr/local/texlive/2025/texmf-dist/tex/latex/graphics/graphicx.sty
+Package: graphicx 2021/09/16 v1.2d Enhanced LaTeX Graphics (DPC,SPQR)
+ (/usr/local/texlive/2025/texmf-dist/tex/latex/graphics/keyval.sty
+Package: keyval 2022/05/29 v1.15 key=value parser (DPC)
+\KV@toks@=\toks19
+) (/usr/local/texlive/2025/texmf-dist/tex/latex/graphics/graphics.sty
+Package: graphics 2024/08/06 v1.4g Standard LaTeX Graphics (DPC,SPQR)
+ (/usr/local/texlive/2025/texmf-dist/tex/latex/graphics/trig.sty
+Package: trig 2023/12/02 v1.11 sin cos tan (DPC)
+) (/usr/local/texlive/2025/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: pdftex.def on input line 106.
+ (/usr/local/texlive/2025/texmf-dist/tex/latex/graphics-def/pdftex.def
+File: pdftex.def 2024/04/13 v1.2c Graphics/color driver for pdftex
+))
+\Gin@req@height=\dimen142
+\Gin@req@width=\dimen143
+) (/usr/local/texlive/2025/texmf-dist/tex/latex/amsmath/amsmath.sty
+Package: amsmath 2024/11/05 v2.17t AMS math features
+\@mathmargin=\skip51
+
+For additional information on amsmath, use the `?' option.
+(/usr/local/texlive/2025/texmf-dist/tex/latex/amsmath/amstext.sty
+Package: amstext 2021/08/26 v2.01 AMS text
+ (/usr/local/texlive/2025/texmf-dist/tex/latex/amsmath/amsgen.sty
+File: amsgen.sty 1999/11/30 v2.0 generic functions
+\@emptytoks=\toks20
+\ex@=\dimen144
+)) (/usr/local/texlive/2025/texmf-dist/tex/latex/amsmath/amsbsy.sty
+Package: amsbsy 1999/11/29 v1.2d Bold Symbols
+\pmbraise@=\dimen145
+) (/usr/local/texlive/2025/texmf-dist/tex/latex/amsmath/amsopn.sty
+Package: amsopn 2022/04/08 v2.04 operator names
+)
+\inf@bad=\count270
+LaTeX Info: Redefining \frac on input line 233.
+\uproot@=\count271
+\leftroot@=\count272
+LaTeX Info: Redefining \overline on input line 398.
+LaTeX Info: Redefining \colon on input line 409.
+\classnum@=\count273
+\DOTSCASE@=\count274
+LaTeX Info: Redefining \ldots on input line 495.
+LaTeX Info: Redefining \dots on input line 498.
+LaTeX Info: Redefining \cdots on input line 619.
+\Mathstrutbox@=\box52
+\strutbox@=\box53
+LaTeX Info: Redefining \big on input line 721.
+LaTeX Info: Redefining \Big on input line 722.
+LaTeX Info: Redefining \bigg on input line 723.
+LaTeX Info: Redefining \Bigg on input line 724.
+\big@size=\dimen146
+LaTeX Font Info:    Redeclaring font encoding OML on input line 742.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 743.
+\macc@depth=\count275
+LaTeX Info: Redefining \bmod on input line 904.
+LaTeX Info: Redefining \pmod on input line 909.
+LaTeX Info: Redefining \smash on input line 939.
+LaTeX Info: Redefining \relbar on input line 969.
+LaTeX Info: Redefining \Relbar on input line 970.
+\c@MaxMatrixCols=\count276
+\dotsspace@=\muskip17
+\c@parentequation=\count277
+\dspbrk@lvl=\count278
+\tag@help=\toks21
+\row@=\count279
+\column@=\count280
+\maxfields@=\count281
+\andhelp@=\toks22
+\eqnshift@=\dimen147
+\alignsep@=\dimen148
+\tagshift@=\dimen149
+\tagwidth@=\dimen150
+\totwidth@=\dimen151
+\lineht@=\dimen152
+\@envbody=\toks23
+\multlinegap=\skip52
+\multlinetaggap=\skip53
+\mathdisplay@stack=\toks24
+LaTeX Info: Redefining \[ on input line 2953.
+LaTeX Info: Redefining \] on input line 2954.
+) (/usr/local/texlive/2025/texmf-dist/tex/latex/algorithms/algorithm.sty
+Package: algorithm 2009/08/24 v0.1 Document Style `algorithm' - floating environment
+ (/usr/local/texlive/2025/texmf-dist/tex/latex/float/float.sty
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count282
+\float@exts=\toks25
+\float@box=\box54
+\@float@everytoks=\toks26
+\@floatcapt=\box55
+) (/usr/local/texlive/2025/texmf-dist/tex/latex/base/ifthen.sty
+Package: ifthen 2024/03/16 v1.1e Standard LaTeX ifthen package (DPC)
+)
+\@float@every@algorithm=\toks27
+\c@algorithm=\count283
+) (/usr/local/texlive/2025/texmf-dist/tex/latex/algorithmicx/algpseudocode.sty
+Package: algpseudocode 
+ (/usr/local/texlive/2025/texmf-dist/tex/latex/algorithmicx/algorithmicx.sty
+Package: algorithmicx 2005/04/27 v1.2 Algorithmicx
+
+Document Style algorithmicx 1.2 - a greatly improved `algorithmic' style
+\c@ALG@line=\count284
+\c@ALG@rem=\count285
+\c@ALG@nested=\count286
+\ALG@tlm=\skip54
+\ALG@thistlm=\skip55
+\c@ALG@Lnr=\count287
+\c@ALG@blocknr=\count288
+\c@ALG@storecount=\count289
+\c@ALG@tmpcounter=\count290
+\ALG@tmplength=\skip56
+)
+Document Style - pseudocode environments for use with the `algorithmicx' style
+) (/usr/local/texlive/2025/texmf-dist/tex/latex/caption/subcaption.sty
+Package: subcaption 2023/07/28 v1.6b Sub-captions (AR)
+ (/usr/local/texlive/2025/texmf-dist/tex/latex/caption/caption.sty
+Package: caption 2023/08/05 v3.6o Customizing captions (AR)
+ (/usr/local/texlive/2025/texmf-dist/tex/latex/caption/caption3.sty
+Package: caption3 2023/07/31 v2.4d caption3 kernel (AR)
+\caption@tempdima=\dimen153
+\captionmargin=\dimen154
+\caption@leftmargin=\dimen155
+\caption@rightmargin=\dimen156
+\caption@width=\dimen157
+\caption@indent=\dimen158
+\caption@parindent=\dimen159
+\caption@hangindent=\dimen160
+Package caption Info: Standard document class detected.
+)
+\c@caption@flags=\count291
+\c@continuedfloat=\count292
+Package caption Info: float package is loaded.
+)
+Package caption Info: New subtype `subfigure' on input line 238.
+\c@subfigure=\count293
+Package caption Info: New subtype `subtable' on input line 238.
+\c@subtable=\count294
+) (/usr/local/texlive/2025/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
+File: l3backend-pdftex.def 2024-05-08 L3 backend support: PDF output (pdfTeX)
+\l__color_backend_stack_int=\count295
+\l__pdf_internal_box=\box56
+) (out/zernike.aux)
+\openout1 = `zernike.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+ (/usr/local/texlive/2025/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count296
+\scratchdimen=\dimen161
+\scratchbox=\box57
+\nofMPsegments=\count297
+\nofMParguments=\count298
+\everyMPshowfont=\toks28
+\MPscratchCnt=\count299
+\MPscratchDim=\dimen162
+\MPnumerator=\count300
+\makeMPintoPDFobject=\count301
+\everyMPtoPDFconversion=\toks29
+) (/usr/local/texlive/2025/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
+Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
+ (/usr/local/texlive/2025/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
+))
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: End \AtBeginDocument code.
+
+
+[1
+
+{/usr/local/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
+Underfull \hbox (badness 10000) in paragraph at lines 59--60
+
+ []
+
+<zernike_figures/izp_before.png, id=16, 961.5925pt x 707.64375pt>
+File: zernike_figures/izp_before.png Graphic file (type png)
+<use zernike_figures/izp_before.png>
+Package pdftex.def Info: zernike_figures/izp_before.png  used on input line 71.
+(pdftex.def)             Requested size: 172.79846pt x 127.16522pt.
+<zernike_figures/izp_9.png, id=17, 961.5925pt x 707.64375pt>
+File: zernike_figures/izp_9.png Graphic file (type png)
+<use zernike_figures/izp_9.png>
+Package pdftex.def Info: zernike_figures/izp_9.png  used on input line 78.
+(pdftex.def)             Requested size: 172.79846pt x 127.16522pt.
+<zernike_figures/izp_25.png, id=18, 961.5925pt x 707.64375pt>
+File: zernike_figures/izp_25.png Graphic file (type png)
+<use zernike_figures/izp_25.png>
+Package pdftex.def Info: zernike_figures/izp_25.png  used on input line 86.
+(pdftex.def)             Requested size: 172.79846pt x 127.16522pt.
+<zernike_figures/sp.png, id=19, 563.10374pt x 419.5675pt>
+File: zernike_figures/sp.png Graphic file (type png)
+<use zernike_figures/sp.png>
+Package pdftex.def Info: zernike_figures/sp.png  used on input line 93.
+(pdftex.def)             Requested size: 172.79846pt x 128.75215pt.
+
+
+[2]
+Underfull \hbox (badness 10000) in paragraph at lines 104--107
+
+ []
+
+<zernike_figures/izp_sp.png, id=26, 992.70876pt x 592.2125pt>
+File: zernike_figures/izp_sp.png Graphic file (type png)
+<use zernike_figures/izp_sp.png>
+Package pdftex.def Info: zernike_figures/izp_sp.png  used on input line 112.
+(pdftex.def)             Requested size: 306.0022pt x 182.54478pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 118--119
+
+ []
+
+
+
+[3 <./zernike_figures/izp_before.png (PNG copy)> <./zernike_figures/izp_9.png (PNG copy)> <./zernike_figures/izp_25.png (PNG copy)> <./zernike_figures/sp.png (PNG copy)>]
+Underfull \hbox (badness 10000) in paragraph at lines 120--121
+
+ []
+
+
+
+[4 <./zernike_figures/izp_sp.png (PNG copy)>]
+<zernike_figures/convergence.png, id=33, 600.2425pt x 457.71pt>
+File: zernike_figures/convergence.png Graphic file (type png)
+<use zernike_figures/convergence.png>
+Package pdftex.def Info: zernike_figures/convergence.png  used on input line 169.
+(pdftex.def)             Requested size: 172.79846pt x 131.7617pt.
+<zernike_figures/zernike_coeffs.png, id=34, 983.675pt x 391.4625pt>
+File: zernike_figures/zernike_coeffs.png Graphic file (type png)
+<use zernike_figures/zernike_coeffs.png>
+Package pdftex.def Info: zernike_figures/zernike_coeffs.png  used on input line 175.
+(pdftex.def)             Requested size: 172.79846pt x 68.76381pt.
+<zernike_figures/bottle_before.png, id=35, 417.56pt x 417.56pt>
+File: zernike_figures/bottle_before.png Graphic file (type png)
+<use zernike_figures/bottle_before.png>
+Package pdftex.def Info: zernike_figures/bottle_before.png  used on input line 182.
+(pdftex.def)             Requested size: 172.79846pt x 172.79993pt.
+<zernike_figures/bottle_after.png, id=36, 417.56pt x 417.56pt>
+File: zernike_figures/bottle_after.png Graphic file (type png)
+<use zernike_figures/bottle_after.png>
+Package pdftex.def Info: zernike_figures/bottle_after.png  used on input line 188.
+(pdftex.def)             Requested size: 172.79846pt x 172.79993pt.
+<zernike_figures/bottle_before_fit.png, id=37, 514.92375pt x 461.725pt>
+File: zernike_figures/bottle_before_fit.png Graphic file (type png)
+<use zernike_figures/bottle_before_fit.png>
+Package pdftex.def Info: zernike_figures/bottle_before_fit.png  used on input line 202.
+(pdftex.def)             Requested size: 172.79846pt x 154.94127pt.
+<zernike_figures/bottle_after_fit.png, id=38, 514.92375pt x 461.725pt>
+File: zernike_figures/bottle_after_fit.png Graphic file (type png)
+<use zernike_figures/bottle_after_fit.png>
+Package pdftex.def Info: zernike_figures/bottle_after_fit.png  used on input line 209.
+(pdftex.def)             Requested size: 172.79846pt x 154.94127pt.
+<zernike_figures/radial_before.png, id=39, 642.4pt x 391.4625pt>
+File: zernike_figures/radial_before.png Graphic file (type png)
+<use zernike_figures/radial_before.png>
+Package pdftex.def Info: zernike_figures/radial_before.png  used on input line 217.
+(pdftex.def)             Requested size: 172.79846pt x 105.29607pt.
+<zernike_figures/radial_after.png, id=40, 642.4pt x 391.4625pt>
+File: zernike_figures/radial_after.png Graphic file (type png)
+<use zernike_figures/radial_after.png>
+Package pdftex.def Info: zernike_figures/radial_after.png  used on input line 224.
+(pdftex.def)             Requested size: 172.79846pt x 105.29607pt.
+<zernike_figures/ringscan_before.png, id=41, 742.775pt x 341.275pt>
+File: zernike_figures/ringscan_before.png Graphic file (type png)
+<use zernike_figures/ringscan_before.png>
+Package pdftex.def Info: zernike_figures/ringscan_before.png  used on input line 232.
+(pdftex.def)             Requested size: 172.79846pt x 79.39247pt.
+<zernike_figures/ringscan_after.png, id=42, 742.775pt x 341.275pt>
+File: zernike_figures/ringscan_after.png Graphic file (type png)
+<use zernike_figures/ringscan_after.png>
+Package pdftex.def Info: zernike_figures/ringscan_after.png  used on input line 239.
+(pdftex.def)             Requested size: 172.79846pt x 79.39247pt.
+<zernike_figures/xscan_before.png, id=43, 742.775pt x 341.275pt>
+File: zernike_figures/xscan_before.png Graphic file (type png)
+<use zernike_figures/xscan_before.png>
+Package pdftex.def Info: zernike_figures/xscan_before.png  used on input line 247.
+(pdftex.def)             Requested size: 172.79846pt x 79.39247pt.
+<zernike_figures/xscan_after.png, id=44, 742.775pt x 341.275pt>
+File: zernike_figures/xscan_after.png Graphic file (type png)
+<use zernike_figures/xscan_after.png>
+Package pdftex.def Info: zernike_figures/xscan_after.png  used on input line 254.
+(pdftex.def)             Requested size: 172.79846pt x 79.39247pt.
+<zernike_figures/yscan_before.png, id=45, 742.775pt x 341.275pt>
+File: zernike_figures/yscan_before.png Graphic file (type png)
+<use zernike_figures/yscan_before.png>
+Package pdftex.def Info: zernike_figures/yscan_before.png  used on input line 262.
+(pdftex.def)             Requested size: 172.79846pt x 79.39247pt.
+<zernike_figures/yscan_after.png, id=46, 742.775pt x 341.275pt>
+File: zernike_figures/yscan_after.png Graphic file (type png)
+<use zernike_figures/yscan_after.png>
+Package pdftex.def Info: zernike_figures/yscan_after.png  used on input line 269.
+(pdftex.def)             Requested size: 172.79846pt x 79.39247pt.
+
+
+LaTeX Warning: Float too large for page by 151.41452pt on input line 278.
+
+
+
+[5]
+
+[6 <./zernike_figures/convergence.png (PNG copy)> <./zernike_figures/zernike_coeffs.png (PNG copy)> <./zernike_figures/bottle_before.png (PNG copy)> <./zernike_figures/bottle_after.png (PNG copy)>]
+
+[7 <./zernike_figures/bottle_before_fit.png (PNG copy)> <./zernike_figures/bottle_after_fit.png (PNG copy)> <./zernike_figures/radial_before.png (PNG copy)> <./zernike_figures/radial_after.png (PNG copy)> <./zernike_figures/ringscan_before.png (PNG copy)> <./zernike_figures/ringscan_after.png (PNG copy)> <./zernike_figures/xscan_before.png (PNG copy)> <./zernike_figures/xscan_after.png (PNG copy)> <./zernike_figures/yscan_before.png (PNG copy)> <./zernike_figures/yscan_after.png (PNG copy)>] (out/zernike.aux)
+ ***********
+LaTeX2e <2024-11-01> patch level 2
+L3 programming layer <2025-01-18>
+ ***********
+ ) 
+Here is how much of TeX's memory you used:
+ 4357 strings out of 473190
+ 75974 string characters out of 5715800
+ 466756 words of memory out of 5000000
+ 27596 multiletter control sequences out of 15000+600000
+ 565205 words of font info for 58 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 67i,8n,77p,520b,495s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
+Output written on out/zernike.pdf (7 pages, 2720735 bytes).
+PDF statistics:
+ 112 PDF objects out of 1000 (max. 8388607)
+ 57 compressed objects within 1 object stream
+ 0 named destinations out of 1000 (max. 500000)
+ 96 words of extra memory for PDF output out of 10000 (max. 10000000)
+
