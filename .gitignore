@@ -1,5 +1,7 @@
 *.dll
 *.cfg
+*.pkl
+*.skopt
 data/
 calibrations/
-notebooks/data/
+notebooks/data/zernike/raw/
